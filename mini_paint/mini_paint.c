@@ -37,7 +37,7 @@ int	main(int argc, char **argv)
 		return (write(1, "Error: Operation file corrupted\n", 32) - 31);
 	if (fscanf(file, "%d %d %c\n", &bg.width, &bg.height, &bg.sign) != 3)
 		return (write(1, "Error: Operation file corrupted\n", 32) - 31);
-	if (bg.width < 1 && bg.width > 300 && bg.height < 1 && bg.height > 300)
+	if (!(bg.width > 0 && bg.width <= 300 && bg.height > 0 && bg.height <= 300))
 		return (write(1, "Error: Operation file corrupted\n", 32) - 31);
 	y = -1;
 	while (++y < bg.height)
